@@ -1,215 +1,168 @@
-⚡ Overcurrent Relay Setting Calculator (MATLAB)
+# ⚡ Overcurrent Relay Setting Calculator (MATLAB)
 
-📌 Project Overview
+![MATLAB](https://img.shields.io/badge/MATLAB-R2020%2B-orange)
+![Domain](https://img.shields.io/badge/Domain-Power%20System%20Protection-red)
+![Type](https://img.shields.io/badge/Type-IDMT%20Relay%20Analysis-blue)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-The Overcurrent Relay Setting Calculator is a MATLAB-based simulation tool designed to analyze the time-current characteristics of IDMT (Inverse Definite Minimum Time) overcurrent relays used in power system protection.
+---
 
-The program computes pickup current, Plug Setting Multiplier (PSM), and relay operating time using IEC standard inverse equations. It supports Standard Inverse, Very Inverse, and Extremely Inverse relay characteristics and generates characteristic curves for relay coordination studies.
+## 📌 Project Overview
 
-This project demonstrates practical application of protection engineering concepts used in substations and transmission systems.
+The **Overcurrent Relay Setting Calculator** is a MATLAB-based simulation tool developed to analyze the time-current characteristics of **IDMT (Inverse Definite Minimum Time) overcurrent relays** used in power system protection.
 
-🎯 Objectives
+The program calculates pickup current, Plug Setting Multiplier (PSM), and relay operating time using IEC standard inverse equations. It supports **Standard Inverse, Very Inverse, and Extremely Inverse** relay characteristics and generates characteristic curves for relay coordination studies.
 
-Implement IEC-based IDMT relay mathematical models
+This project demonstrates practical implementation of protection engineering principles used in substations and transmission systems.
 
-Calculate pickup current using CT ratio and plug setting
+---
 
-Compute Plug Setting Multiplier (PSM)
+## 🎯 Objectives
 
-Determine relay operating time for varying fault levels
+- Implement IEC-based IDMT relay mathematical models  
+- Calculate pickup current using CT ratio and plug setting  
+- Compute Plug Setting Multiplier (PSM)  
+- Determine relay operating time for varying fault levels  
+- Generate time-current characteristic curves  
+- Study the effect of Time Multiplier Setting (TMS)  
 
-Generate time-current characteristic curves
+---
 
-Study effect of Time Multiplier Setting (TMS)
+## ⚙️ Theoretical Background
 
-⚙️ Theoretical Background
-🔹 Overcurrent Protection
+### 🔹 Overcurrent Protection
 
 An overcurrent relay operates when current exceeds a predefined pickup value. It is widely used for feeder, transformer, and line protection.
 
-🔹 Plug Setting Multiplier (PSM)
-𝑃
-𝑆
-𝑀
-=
-𝐹
-𝑎
-𝑢
-𝑙
-𝑡
- 
-𝐶
-𝑢
-𝑟
-𝑟
-𝑒
-𝑛
-𝑡
-𝑃
-𝑖
-𝑐
-𝑘
-𝑢
-𝑝
- 
-𝐶
-𝑢
-𝑟
-𝑟
-𝑒
-𝑛
-𝑡
-PSM=
-Pickup Current
-Fault Current
-	​
+---
 
+### 🔹 Plug Setting Multiplier (PSM)
 
-Relay operates only when PSM > 1.
+PSM = Fault Current / Pickup Current  
 
-🔹 IEC Inverse Characteristics
+Relay operates only when **PSM > 1**.
 
-The relay operating time is calculated using:
+---
 
-𝑇
-=
-𝐾
-×
-𝑇
-𝑀
-𝑆
-(
-𝑃
-𝑆
-𝑀
-𝛼
-−
-1
-)
-T=
-(PSM
-α
-−1)
-K×TMS
-	​
+### 🔹 IEC Inverse Characteristics Equation
 
+T = (K × TMS) / (PSM^α − 1)
 
 Where:
 
-T = Operating time (seconds)
+- T = Operating time (seconds)  
+- TMS = Time Multiplier Setting  
+- K, α = Constants depending on relay type  
 
-TMS = Time Multiplier Setting
+| Relay Type            | K    | α    |
+|-----------------------|------|------|
+| Standard Inverse      | 0.14 | 0.02 |
+| Very Inverse          | 13.5 | 1    |
+| Extremely Inverse     | 80   | 2    |
 
-K, α = Constants depending on relay type
+---
 
-Relay Type	K	α
-Standard Inverse	0.14	0.02
-Very Inverse	13.5	1
-Extremely Inverse	80	2
-🖥️ Features
+## 🖥️ Features
 
-✔ CT ratio consideration (Primary/Secondary conversion)
-✔ Plug setting percentage input
-✔ Automatic pickup current calculation
-✔ PSM computation
-✔ Standard / Very / Extremely inverse options
-✔ Operating time calculation
-✔ Multi-TMS comparison for coordination
-✔ Time-current characteristic plots
+- CT ratio consideration (Primary/Secondary conversion)  
+- Plug setting percentage input  
+- Automatic pickup current calculation  
+- PSM computation  
+- Standard / Very / Extremely inverse options  
+- Operating time calculation  
+- Multi-TMS comparison for coordination study  
+- Time-current characteristic plots  
 
-📥 Inputs Required
+---
 
-CT Primary Current (A)
+## 📥 Inputs Required
 
-CT Secondary Current (A)
+- CT Primary Current (A)  
+- CT Secondary Current (A)  
+- Plug Setting (%)  
+- Time Multiplier Setting (TMS)  
+- Relay Characteristic Type  
 
-Plug Setting (%)
+---
 
-Time Multiplier Setting (TMS)
+## 📤 Outputs Generated
 
-Relay Characteristic Type
+- Pickup Current (Primary & Secondary)  
+- Plug Setting Multiplier (PSM)  
+- Relay Operating Time  
+- Maximum and Minimum operating time  
+- Time–Current Characteristic Curve  
+- Relay Coordination Plot (Multiple TMS values)  
 
-📤 Outputs Generated
+---
 
-Pickup Current (Primary & Secondary)
+## 📊 Sample Input
 
-Plug Setting Multiplier (PSM)
+CT Primary: 1000 A  
+CT Secondary: 5 A  
+Plug Setting: 100 %  
+TMS: 0.1  
+Characteristic: Standard Inverse  
 
-Relay Operating Time
+---
 
-Maximum and Minimum operating time
+## 📈 Expected Results
 
-Time–Current Characteristic Curve
+- Relay operates only when fault current exceeds pickup current  
+- Operating time decreases as fault current increases  
+- Higher TMS results in slower relay operation  
+- Extremely inverse characteristic produces steeper curve  
 
-Relay Coordination (Multi-TMS plot)
+---
 
-📊 Sample Input
+## 🛠️ Software Requirements
 
-CT Primary: 1000 A
-CT Secondary: 5 A
-Plug Setting: 100 %
-TMS: 0.1
-Characteristic: Standard Inverse
+- MATLAB (R2020 or later recommended)  
+- No additional toolboxes required  
 
-📈 Expected Results
+---
 
-Relay operates only when fault current exceeds pickup current
+## 🚀 How to Run
 
-Operating time decreases as fault current increases
+1. Open MATLAB  
+2. Create a new script file (`overcurrent_relay.m`)  
+3. Paste the provided MATLAB code  
+4. Run the script  
+5. Enter required input values  
+6. View numerical results and generated plots  
 
-Higher TMS results in slower relay operation
+---
 
-Extremely inverse characteristic gives steeper curve
+## 📚 Learning Outcomes
 
-🛠️ Software Requirements
+- Understanding of IDMT relay characteristics  
+- Protection coordination fundamentals  
+- CT ratio and plug setting calculations  
+- Time-current curve interpretation  
+- MATLAB-based power system protection simulation  
 
-MATLAB (R2020 or later recommended)
+---
 
-No additional toolboxes required
+## 🎓 Applications
 
-🚀 How to Run
+- Substation protection design  
+- Feeder and transformer protection studies  
+- Relay coordination analysis  
+- Fault level and grading margin studies  
+- Academic power system laboratories  
 
-Open MATLAB
+---
 
-Create a new script file
-
-Paste the provided code
-
-Run the script
-
-Enter required inputs when prompted
-
-View numerical results and generated plots
-
-📚 Learning Outcomes
-
-Understanding of IDMT relay characteristics
-
-Protection coordination principles
-
-CT ratio and plug setting calculations
-
-Time-current curve interpretation
-
-MATLAB-based power system protection simulation
-
-🎓 Applications
-
-Substation protection design
-
-Feeder and transformer protection studies
-
-Relay coordination analysis
-
-Fault level and grading margin studies
-
-Academic power system laboratories
-
-📌 Resume Description
+## 📌 Resume Description
 
 Developed a MATLAB-based IDMT Overcurrent Relay Setting and Coordination Tool incorporating CT ratio, plug setting, IEC inverse characteristics, and TMS-based coordination analysis for power system protection studies.
 
-👨‍💻 Author
+---
 
-Rohan Vishwakarma
-Electrical Engineering Student
+## 👨‍💻 Author
+
+**Rohan Vishwakarma**  
+Electrical Engineering Student  
+
+---
