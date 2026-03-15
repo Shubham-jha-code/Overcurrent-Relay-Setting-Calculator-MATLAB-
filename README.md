@@ -162,7 +162,7 @@ Developed a MATLAB-based IDMT Overcurrent Relay Setting and Coordination Tool in
 
 ## 👨‍💻 Author
 
-**Rohan Vishwakarma**  
+**Shubham Jha**  
 Electrical Engineering Student  
 
 ---
